@@ -18,7 +18,7 @@ import '../css/app.less';
 import App from '../components/app.vue';
 
 //Import Google Login
-import GoogleSignInPlugin from 'vue3-google-login';
+import vue3GoogleLogin  from 'vue3-google-login';
 
 // Init Framework7-Vue Plugin
 Framework7.use(Framework7Vue);
@@ -26,7 +26,7 @@ Framework7.use(Framework7Vue);
 // Init App
 const app = createApp(App);
 
-app.use(GoogleSignInPlugin, {
+app.use(vue3GoogleLogin, {
     clientId: '968074210001-86bg25lik4j22cfc03mgheo01pa0ajro.apps.googleusercontent.com'
 })
 
