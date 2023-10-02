@@ -69,6 +69,7 @@
         </f7-page>
       </f7-view>
     </f7-login-screen>
+
   </f7-app>
 </template>
 <script>
@@ -84,11 +85,11 @@
     setup() {
       const isAuthenticated = ref(false)
       const googleCallback = (response) => {
-        if (response.isSignedIn) {
+        if (response) {
           isAuthenticated.value = true
-        }
-         
-      console.log("Handle the response", response)
+          f7.loginScreen.close();
+        } 
+      console.log("Handle the response", isAuthenticated.value)
       }
       const device = getDevice();
       // Framework7 Parameters
@@ -122,32 +123,37 @@
         },
       };
       // Login screen data
-      const username = ref('');
+/*       const username = ref('');
       const password = ref('');
 
       const alertLoginData = () => {
         f7.dialog.alert('Username: ' + username.value + '<br>Password: ' + password.value, () => {
           f7.loginScreen.close();
         });
-      }
+      } */
       onMounted(() => {
-        f7ready(() => {
-
+        f7ready((f7) => {
 
           // Init capacitor APIs (see capacitor-app.js)
           if (device.capacitor) {
             capacitorApp.init(f7);
           }
           // Call F7 APIs here
+          if(!isAuthenticated.value) {
+            f7.loginScreen.open('#my-login-screen', true)
+            console.log("Login aperto")
+          } else {  }
+
         });
       });
 
       return {
         f7params,
-        username,
-        password,
-        alertLoginData,
-        googleCallback
+        //username,
+        //password,
+        //alertLoginData,
+        googleCallback,
+        isAuthenticated
       }
     }
   }
