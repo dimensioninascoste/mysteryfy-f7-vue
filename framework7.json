@@ -1,0 +1,26 @@
+{
+  "cwd": "C:\\Users\\Utente\\Documents\\Mystyframework7\\mysteryfy-f7-v2\\mysteryfy-f7-vue",
+  "type": [
+    "pwa",
+    "capacitor"
+  ],
+  "name": "Mysteryfy",
+  "framework": "vue",
+  "template": "tabs",
+  "bundler": "vite",
+  "cssPreProcessor": "less",
+  "theming": {
+    "customColor": true,
+    "color": "#a50097",
+    "darkMode": true,
+    "iconFonts": true
+  },
+  "customBuild": false,
+  "pkg": "it.dimensioninascoste.mysteryfy",
+  "capacitor": {
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  }
+}
